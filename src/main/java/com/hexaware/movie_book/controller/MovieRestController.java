@@ -22,7 +22,15 @@ import com.hexaware.movie_book.service.IMovieService;
 @RequestMapping("/api/movies")
 public class MovieRestController {
 	@Autowired
-	IMovieService service;
+
+	private IMovieService service;
+	
+
+
+	public MovieRestController(IMovieService service) {
+		super();
+		this.service = service;
+	}
 
 	@GetMapping("/welcome")
     public String welcome() {

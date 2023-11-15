@@ -1,6 +1,9 @@
 package com.hexaware.movie_book.dto;
 
+
+
 public class MovieDTO {
+	
     private int movieId;
     private String movieName;
     private Double rating;

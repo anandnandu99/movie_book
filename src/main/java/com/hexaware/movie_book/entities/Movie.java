@@ -2,17 +2,31 @@ package com.hexaware.movie_book.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+ /*
+  * 
+  * @Author:Anand
+  * Date:14-11-2023
+  * Description:Entity
+  */
 @Entity
 public class Movie {
-    @Id
+	@Id
     private int movieId;
+	 @NotBlank(message = "Movie name is required")
+
     private String movieName;
+	 @DecimalMax(value = "5.0")
+
     private Double rating;
     private String director;
+    @Digits(integer = 4, fraction = 0)
     private int releaseYear;
     private String language;
 
+    
     public int getMovieId() {
         return movieId;
     }

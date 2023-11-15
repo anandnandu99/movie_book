@@ -12,6 +12,7 @@ public class Ticket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ticketId;
 
+	
     private int showId;
     private int seatNumber;
     private double price;

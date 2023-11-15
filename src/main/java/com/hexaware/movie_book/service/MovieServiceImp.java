@@ -18,10 +18,12 @@ public class MovieServiceImp implements IMovieService {
     @Override
     public Movie addMovie(MovieDTO movieDTO) {
         Movie movie = new Movie();
-
         movie.setMovieId(movieDTO.getMovieId());
         movie.setMovieName(movieDTO.getMovieName());
         movie.setRating(movieDTO.getRating());
+        movie.setDirector(movieDTO.getDirector()); 
+        movie.setReleaseYear(movieDTO.getReleaseYear());
+        movie.setLanguage(movieDTO.getLanguage());
 
         return repo.save(movie);
     }
@@ -32,9 +34,14 @@ public class MovieServiceImp implements IMovieService {
 
         MovieDTO movieDTO = new MovieDTO();
 
-        movieDTO.setMovieId(movie.getMovieId());
-        movieDTO.setMovieName(movie.getMovieName());
-        movieDTO.setRating(movie.getRating());
+        if (movie != null) {
+            movieDTO.setMovieId(movie.getMovieId());
+            movieDTO.setMovieName(movie.getMovieName());
+            movieDTO.setRating(movie.getRating());
+            movieDTO.setDirector(movie.getDirector()); 
+            movieDTO.setReleaseYear(movie.getReleaseYear());
+            movieDTO.setLanguage(movie.getLanguage());
+        }
 
         return movieDTO;
     }

@@ -1,15 +1,20 @@
-package com.hexaware.movieticketbooking.service;
+package com.hexaware.movie_book.service;
 
 import java.util.List;
 
-import com.hexaware.movieticketbooking.dto.AdminDto;
-import com.hexaware.movieticketbooking.entity.Admin;
+import com.hexaware.movie_book.dto.AdminDTO;
+import com.hexaware.movie_book.entities.Admin;
 
 public interface IAdminService {
-	public Admin insertAdmin(AdminDto adminDto);
-	public Admin updateAdmin(AdminDto adminDto);
-	public void deleteAdminById(int adminId);
-	public AdminDto getById(int adminId);
-	public List <Admin> getAll();	
+		public Admin createAdmin(AdminDTO admindto);
+		public Admin updateAdmin(AdminDTO admindto,Long bookingId);
+		public void  deleteAdmin(Long adminId);
+		public AdminDTO getAdmin(Long adminId);
 
-}
+		public List<Admin>getAllAdmin();
+		
+
+	}
+
+
+

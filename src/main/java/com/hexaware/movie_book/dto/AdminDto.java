@@ -1,41 +1,66 @@
-package com.hexaware.movieticketbooking.dto;
+package com.hexaware.movie_book.dto;
 
-public class AdminDto {
-	
-	     private int   adminId;
-	     private String adminName;
-	     private String password;
-		 
-		public int getAdminId() {
-			return adminId;
-		}
-		public void setAdminId(int adminId) {
-			this.adminId = adminId;
-		}
-		public String getAdminName() {
-			return adminName;
-		}
-		public void setAdminName(String adminName) {
-			this.adminName = adminName;
-		}
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		
-		public AdminDto(int adminId, String adminName, String password) {
-			super();
-			this.adminId = adminId;
-			this.adminName = adminName;
-			this.password = password;
-			
-		}
-		public AdminDto() {
-			super();
-		}
-		 
+public class AdminDTO {
+	private Long adminId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private Long phoneNumber;
+	public AdminDTO() {
+		super();
 	}
+	public AdminDTO(Long adminId, String firstName, String lastName, String email, String password, Long phoneNumber) {
+		super();
+		this.adminId = adminId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+	}
+	public Long getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(Long adminId) {
+		this.adminId = adminId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", phoneNumber=" + phoneNumber + "]";
+	}
+	
 
-
+	
+}
