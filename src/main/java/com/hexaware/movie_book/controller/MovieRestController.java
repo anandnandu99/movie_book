@@ -2,8 +2,6 @@ package com.hexaware.movie_book.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hexaware.movie_book.dto.MovieDTO;
 import com.hexaware.movie_book.entities.Movie;
 import com.hexaware.movie_book.service.IMovieService;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 
 
 @RestController

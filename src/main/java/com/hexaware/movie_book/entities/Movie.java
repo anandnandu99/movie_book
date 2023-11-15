@@ -1,11 +1,12 @@
 package com.hexaware.movie_book.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
- /*
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
+
+/*
   * 
   * @Author:Anand
   * Date:14-11-2023
