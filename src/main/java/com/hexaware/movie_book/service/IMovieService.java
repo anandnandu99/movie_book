@@ -7,7 +7,7 @@ import com.hexaware.movie_book.entities.Movie;
 
 public interface IMovieService {
 	
-	    Movie addMovie(MovieDTO movieDTO);
+	    Movie addMovie(MovieDTO movieDTO) ;
 	    
 	    MovieDTO getByMovieId(int movieId);
 
@@ -22,17 +22,5 @@ public interface IMovieService {
 	    
 
 	    
-
-   /*
-
-	    
-
-	    
-	
-    *  public List<MovieDTO> getByMovieRating(Double rating);
-    *   public List<MovieDTO> getByMovieDirector(String director);
-    public List<MovieDTO> getByMovieLanguage(String language);
-    */
-   
     
 }

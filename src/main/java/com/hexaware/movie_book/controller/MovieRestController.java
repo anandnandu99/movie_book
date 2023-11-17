@@ -1,11 +1,14 @@
 package com.hexaware.movie_book.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.movie_book.dto.MovieDTO;
 import com.hexaware.movie_book.entities.Movie;
+import com.hexaware.movie_book.exception.MovieNotFoundException;
 import com.hexaware.movie_book.service.IMovieService;
 
 
@@ -38,11 +42,14 @@ public class MovieRestController {
         return "Welcome! This endpoint is not secure";
     }
 
-	@PostMapping("/addMovie")
-	public Movie addMovie(@RequestBody MovieDTO movieDTO) {
-		logger.info("---------------Movie Added----------------");
-	    return service.addMovie(movieDTO);
-	}
+	    @PostMapping("/addMovie")
+		public ResponseEntity<Movie> addMovie(@RequestBody MovieDTO movieDTO)
+				throws MovieNotFoundException, IOException {
+			Movie movie = service.addMovie(movieDTO);
+			logger.info("-------Movie Added Successfully---------");
+			return new ResponseEntity<>(movie, HttpStatus.CREATED);
+		}
+	
 
 	@GetMapping("/getById/{movieId}")
 	public MovieDTO getByMovieId(@PathVariable  int movieId) {

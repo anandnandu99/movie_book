@@ -21,7 +21,6 @@ public class ShowsServiceImp implements IShowsService {
 
         shows.setShowId(showsDTO.getShowId());
         shows.setShowName(showsDTO.getShowName());
-        shows.setShowTime(showsDTO.getShowTime());
         shows.setTheatreId(showsDTO.getTheatreId());
         shows.setMovieName(showsDTO.getMovieName());
 
@@ -39,7 +38,6 @@ public class ShowsServiceImp implements IShowsService {
         ShowsDTO showsDTO = new ShowsDTO();
         showsDTO.setShowId(shows.getShowId());
         showsDTO.setShowName(shows.getShowName());
-        showsDTO.setShowTime(shows.getShowTime());
         showsDTO.setTheatreId(shows.getTheatreId());
         showsDTO.setMovieName(shows.getMovieName());
 
@@ -51,15 +49,24 @@ public class ShowsServiceImp implements IShowsService {
     }
 
 	@Override
-	public List<ShowsDTO> getShowsByTheatreId(int theatreId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Shows updateByShowId(int showId, ShowsDTO showsDTO) {
+		Shows shows=new Shows();
+
+        shows.setShowId(showsDTO.getShowId());
+        shows.setShowName(showsDTO.getShowName());
+        shows.setTheatreId(showsDTO.getTheatreId());
+        shows.setMovieName(showsDTO.getMovieName());
+
+        return showsRepository.save(shows);
+    }
 
 	@Override
-	public List<ShowsDTO> getShowsByMovieName(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteByShowId(int showId) {
+		Shows show=showsRepository.findById(showId).orElse(null);
+		
+		showsRepository.delete(show);
 	}
+
+	
 }
 

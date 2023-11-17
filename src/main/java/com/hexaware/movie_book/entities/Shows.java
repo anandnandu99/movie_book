@@ -2,19 +2,33 @@ package com.hexaware.movie_book.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalTime;
+import javax.validation.constraints.NotBlank;
+
+
 
 @Entity
 public class Shows {
     @Id
     private int showId;
+    @NotBlank
     private String showName;
-    private LocalTime showTime;
     private int theatreId; 
     private String movieName;
 
 
-    public int getShowId() {
+    public Shows() {
+		super();
+	}
+
+	public Shows(int showId, @NotBlank String showName,  int theatreId, String movieName) {
+		super();
+		this.showId = showId;
+		this.showName = showName;
+		this.theatreId = theatreId;
+		this.movieName = movieName;
+	}
+
+	public int getShowId() {
         return showId;
     }
 
@@ -30,13 +44,9 @@ public class Shows {
         this.showName = showName;
     }
 
-    public LocalTime getShowTime() {
-        return showTime;
-    }
+   
 
-    public void setShowTime(LocalTime showTime) {
-        this.showTime = showTime;
-    }
+  
 
     public int getTheatreId() {
         return theatreId;

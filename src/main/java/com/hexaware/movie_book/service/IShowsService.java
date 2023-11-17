@@ -11,9 +11,17 @@ public interface IShowsService {
     public ShowsDTO getById(int showId);
 
     List<Shows> getAll();
+     public Shows updateByShowId(int showId, ShowsDTO showsDTO);
 
-    List<ShowsDTO> getShowsByTheatreId(int theatreId);
+    void deleteByShowId(int showId);
 
-    List<ShowsDTO> getShowsByMovieName(String movieName);
+   /*
+    * 
+    *  
+    *  List<ShowsDTO> getShowsByTheatreId(int theatreId);
+    *  List<ShowsDTO> getShowsByMovieName(String movieName);
 
+    */
+
+    
 }

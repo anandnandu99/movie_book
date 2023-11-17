@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,24 +20,32 @@ import com.hexaware.movie_book.entities.Ticket;
 import com.hexaware.movie_book.service.ITicketService;
 
 @RestController
-@RequestMapping("/api/tickets")
+@RequestMapping("/api/v1/tickets")
 public class TicketRestController {
+	Logger logger=LoggerFactory.getLogger(MovieRestController.class);
 
     @Autowired
     ITicketService ticketService;
 
     @PostMapping("/book")
     public Ticket bookTicket(@RequestBody TicketDTO ticketDTO) {
-        return ticketService.bookTicket(ticketDTO);
+    	Ticket ticket=ticketService.bookTicket(ticketDTO);
+		logger.info("---------------Ticket Booked----------------");
+
+        return ticket;
     }
 
     @GetMapping("/get/{ticketId}")
     public TicketDTO getTicketById(@PathVariable @Valid @Min(1) Long ticketId) {
+		logger.info("---------------Get Ticket----------------");
+
         return ticketService.getTicketById(ticketId);
     }
 
     @GetMapping("/getall")
     public List<Ticket> getAllTickets() {
+		logger.info("---------------All Tickets----------------");
+
         return ticketService.getAllTickets();
     }
 }
