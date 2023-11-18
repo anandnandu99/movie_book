@@ -49,4 +49,18 @@ public class TicketServiceImp implements ITicketService {
     public List<Ticket> getAllTickets() {
         return ticketRepository.findAll();
     }
+
+	@Override
+	public void deleteByTicketId(Long ticketId) {
+		 Ticket ticket = ticketRepository.findById(ticketId).orElse(null);
+
+	       
+         ticketRepository.delete(ticket);
+
+		
+	}
+
+	
+		
+	
 }

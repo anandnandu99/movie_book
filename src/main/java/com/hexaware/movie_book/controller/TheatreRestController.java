@@ -2,8 +2,6 @@ package com.hexaware.movie_book.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import com.hexaware.movie_book.dto.TheatreDTO;
 import com.hexaware.movie_book.entities.Theatre;
 import com.hexaware.movie_book.service.ITheatreService;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 
 @RestController
 @RequestMapping("/api/v1/theatres")

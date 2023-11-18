@@ -2,17 +2,23 @@ package com.hexaware.movie_book.entities;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
 
 @Entity
 public class Ticket {
 	@Id
-
-	private Long ticketId;
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long ticketId;
 
 	
-    private int showId;
+   
+
+	private int showId;
     private int seatNumber;
     private double price;
     private LocalDateTime bookingTime;
@@ -56,4 +62,6 @@ public class Ticket {
     public void setBookingTime(LocalDateTime bookingTime) {
         this.bookingTime = bookingTime;
     }
+
+	
 }

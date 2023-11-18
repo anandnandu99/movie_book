@@ -9,4 +9,6 @@ public interface ITicketService {
     Ticket bookTicket(TicketDTO ticketDTO);
     TicketDTO getTicketById(Long ticketId);
     List<Ticket> getAllTickets();
+    void deleteByTicketId(Long ticketId);
+    
 }
