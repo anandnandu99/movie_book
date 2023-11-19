@@ -1,17 +1,19 @@
 package com.hexaware.movie_book.exception;
 
-public class MovieNotFoundException extends Exception{
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class MovieNotFoundException extends ResponseStatusException{
 
 	
 		private static final long serialVersionUID = 1L;
 
-		public MovieNotFoundException() {
+		public MovieNotFoundException(HttpStatus status, String message) {
+			super(status,message);
 
 		}
 
-		public MovieNotFoundException(String message) {
-			super(message);
-		}
+		
 	}
 
 

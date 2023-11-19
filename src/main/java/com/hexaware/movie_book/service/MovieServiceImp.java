@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hexaware.movie_book.dto.MovieDTO;
 import com.hexaware.movie_book.entities.Movie;
+import com.hexaware.movie_book.exception.MovieNotFoundException;
 import com.hexaware.movie_book.repository.MovieRepository;
 
 @Service
@@ -37,7 +38,7 @@ public class MovieServiceImp implements IMovieService {
     
 
     @Override
-    public MovieDTO getByMovieId(int movieId) {
+    public MovieDTO getByMovieId(int movieId) throws MovieNotFoundException {
         Movie movie = repo.findById(movieId).orElse(null);
 
         MovieDTO movieDTO = new MovieDTO();

@@ -52,11 +52,19 @@ public class MovieRestController {
 	
 
 	@GetMapping("/getById/{movieId}")
-	public MovieDTO getByMovieId(@PathVariable  int movieId) {
+	public MovieDTO getByMovieId(@PathVariable  int movieId)  {
 		logger.info("---------------Movie Matches----------------");
+		MovieDTO movieDto=service.getByMovieId(movieId);
+		if(movieDto.getMovieId()!=movieId) {
+			logger.warn("Movie Not Found foe {}" ,movieId);
+		
+			throw new MovieNotFoundException(HttpStatus.NOT_FOUND,"Movie Not Found for:"+movieId);
+			
+		}
 
-	    return service.getByMovieId(movieId);
-	}
+
+	    return movieDto;
+	    }
 
 	@GetMapping("/getAllMovies")
 	public List<Movie> getAllMovies() {

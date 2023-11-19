@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.hexaware.movie_book.dto.MovieDTO;
 import com.hexaware.movie_book.entities.Movie;
+import com.hexaware.movie_book.exception.MovieNotFoundException;
 
 public interface IMovieService {
 	
 	    Movie addMovie(MovieDTO movieDTO) ;
 	    
-	    MovieDTO getByMovieId(int movieId);
+	    MovieDTO getByMovieId(int movieId)throws MovieNotFoundException;
 
 	    List<Movie> getAllMovies();
 
